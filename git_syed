@@ -1,0 +1,683 @@
+labuser@labuser-virtual-machine:~$ git --version
+git version 2.34.1
+labuser@labuser-virtual-machine:~$ mkdir test1
+labuser@labuser-virtual-machine:~$ cd test1
+labuser@labuser-virtual-machine:~/test1$ git init
+Initialized empty Git repository in /home/labuser/test1/.git/
+labuser@labuser-virtual-machine:~/test1$ echo "test1"> test1
+labuser@labuser-virtual-machine:~/test1$ gi status
+gi: command not found
+labuser@labuser-virtual-machine:~/test1$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	test1
+
+nothing added to commit but untracked files present (use "git add" to track)
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change 1"
+[master (root-commit) df4a6a9] change 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test1
+labuser@labuser-virtual-machine:~/test1$ git remote add origin https://github.com/syedmohammedshadaab/syed.git
+labuser@labuser-virtual-machine:~/test1$ git remote -v
+origin	https://github.com/syedmohammedshadaab/syed.git (fetch)
+origin	https://github.com/syedmohammedshadaab/syed.git (push)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': syedmohammedshadaab
+Password for 'https://syedmohammedshadaab@github.com': 
+remote: Permission to syedmohammedshadaab/syed.git denied to syedmohammedshadaab.
+fatal: unable to access 'https://github.com/syedmohammedshadaab/syed.git/': The requested URL returned error: 403
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': syedmohammedshadaab
+Password for 'https://syedmohammedshadaab@github.com': 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 223 bytes | 223.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/syedmohammedshadaab/syed.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change 1"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change1"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+labuser@labuser-virtual-machine:~/test1$ git remote -v
+origin	https://github.com/syedmohammedshadaab/syed.git (fetch)
+origin	https://github.com/syedmohammedshadaab/syed.git (push)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': syedmohammedshadaab
+Password for 'https://syedmohammedshadaab@github.com': 
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Everything up-to-date
+labuser@labuser-virtual-machine:~/test1$ nano test1
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change 2"
+[master 724d9ff] change 2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master 
+Username for 'https://github.com': syedmohammedshadaab
+Password for 'https://syedmohammedshadaab@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 252 bytes | 252.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/syedmohammedshadaab/syed.git
+   df4a6a9..724d9ff  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git branch
+* master
+labuser@labuser-virtual-machine:~/test1$ git branch devops1
+labuser@labuser-virtual-machine:~/test1$ git checkout devops1
+Switched to branch 'devops1'
+labuser@labuser-virtual-machine:~/test1$ git branch 
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test1$ echo "test3">file1
+labuser@labuser-virtual-machine:~/test1$ echo "test4">file2
+labuser@labuser-virtual-machine:~/test1$ ls -li
+total 12
+6031773 -rw-rw-r-- 1 labuser labuser 6 Dec 14 00:37 file1
+6031812 -rw-rw-r-- 1 labuser labuser 6 Dec 14 00:37 file2
+6031891 -rw-rw-r-- 1 labuser labuser 6 Dec 14 00:35 test1
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change4"
+[devops1 2a7a502] change4
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1
+ create mode 100644 file2
+labuser@labuser-virtual-machine:~/test1$ git push -u origin devops1
+Username for 'https://github.com': syedmohammedshadaab
+Password for 'https://syedmohammedshadaab@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 320 bytes | 320.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'devops1' on GitHub by visiting:
+remote:      https://github.com/syedmohammedshadaab/syed/pull/new/devops1
+remote: 
+To https://github.com/syedmohammedshadaab/syed.git
+ * [new branch]      devops1 -> devops1
+Branch 'devops1' set up to track remote branch 'devops1' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git branch
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test1$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+labuser@labuser-virtual-machine:~/test1$ git merge devops1
+Updating 724d9ff..2a7a502
+Fast-forward
+ file1 | 1 +
+ file2 | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1
+ create mode 100644 file2
+labuser@labuser-virtual-machine:~/test1$ git log -p
+commit 2a7a5028f43bf5eae75fedaf6d7f2a30b8aadf1d (HEAD -> master, origin/devops1, devops1)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 00:38:12 2024 -0500
+
+    change4
+
+diff --git a/file1 b/file1
+new file mode 100644
+index 0000000..df6b0d2
+--- /dev/null
++++ b/file1
+@@ -0,0 +1 @@
++test3
+diff --git a/file2 b/file2
+new file mode 100644
+index 0000000..d234c5e
+--- /dev/null
++++ b/file2
+@@ -0,0 +1 @@
++test4
+
+commit 724d9ff6f55dc83d9eadc7ef13ebc85a0da83548 (origin/master)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 00:35:50 2024 -0500
+
+    change 2
+
+diff --git a/test1 b/test1
+index a5bce3f..180cf83 100644
+--- a/test1
++++ b/test1
+@@ -1 +1 @@
+-test1
++test2
+
+commit df4a6a9b785d8b7666678f9250e16aae253f84f1
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 00:24:37 2024 -0500
+
+    change 1
+
+diff --git a/test1 b/test1
+new file mode 100644
+index 0000000..a5bce3f
+--- /dev/null
++++ b/test1
+@@ -0,0 +1 @@
++test1
+labuser@labuser-virtual-machine:~/test1$ git log --oneline
+2a7a502 (HEAD -> master, origin/devops1, devops1) change4
+724d9ff (origin/master) change 2
+df4a6a9 change 1
+labuser@labuser-virtual-machine:~/test1$ cd
+labuser@labuser-virtual-machine:~$ git clone gh repo clone syedmohammedshadaab/syed
+fatal: Too many arguments.
+
+usage: git clone [<options>] [--] <repo> [<dir>]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --progress            force progress reporting
+    --reject-shallow      don't clone shallow repository
+    -n, --no-checkout     don't create a checkout
+    --bare                create a bare repository
+    --mirror              create a mirror repository (implies bare)
+    -l, --local           to clone from a local repository
+    --no-hardlinks        don't use local hardlinks, always copy
+    -s, --shared          setup as shared repository
+    --recurse-submodules[=<pathspec>]
+                          initialize submodules in the clone
+    --recursive ...       alias of --recurse-submodules
+    -j, --jobs <n>        number of submodules cloned in parallel
+    --template <template-directory>
+                          directory from which templates will be used
+    --reference <repo>    reference repository
+    --reference-if-able <repo>
+                          reference repository
+    --dissociate          use --reference only while cloning
+    -o, --origin <name>   use <name> instead of 'origin' to track upstream
+    -b, --branch <branch>
+                          checkout <branch> instead of the remote's HEAD
+    -u, --upload-pack <path>
+                          path to git-upload-pack on the remote
+    --depth <depth>       create a shallow clone of that depth
+    --shallow-since <time>
+                          create a shallow clone since a specific time
+    --shallow-exclude <revision>
+                          deepen history of shallow clone, excluding rev
+    --single-branch       clone only one branch, HEAD or --branch
+    --no-tags             don't clone any tags, and make later fetches not to follow them
+    --shallow-submodules  any cloned submodules will be shallow
+    --separate-git-dir <gitdir>
+                          separate git dir from working tree
+    -c, --config <key=value>
+                          set config inside the new repository
+    --server-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+    --filter <args>       object filtering
+    --remote-submodules   any cloned submodules will use their remote-tracking branch
+    --sparse              initialize sparse-checkout file to include only files at root
+
+labuser@labuser-virtual-machine:~$ ls
+Desktop    Downloads    Music     Public  snap       test1
+Documents  execute.yml  Pictures  repos   Templates  Videos
+labuser@labuser-virtual-machine:~$ ls -li
+total 48
+6029410 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Desktop
+6029414 drwxr-xr-x 3 labuser labuser 4096 Dec 15  2023 Documents
+6029411 drwxr-xr-x 2 labuser labuser 4096 Dec 13 23:45 Downloads
+6036475 -rw-rw-r-- 1 labuser labuser   53 Dec 18  2023 execute.yml
+6029415 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Music
+6029416 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Pictures
+6029413 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Public
+6030259 drwxrwxr-x 2 labuser labuser 4096 Dec 18  2023 repos
+6029322 drwx------ 6 labuser labuser 4096 Dec 15  2023 snap
+6029412 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Templates
+6031823 drwxrwxr-x 3 labuser labuser 4096 Dec 14 00:39 test1
+6029418 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Videos
+labuser@labuser-virtual-machine:~$ cd syed
+bash: cd: syed: No such file or directory
+labuser@labuser-virtual-machine:~$ cd syed
+bash: cd: syed: No such file or directory
+labuser@labuser-virtual-machine:~$ cd test1
+labuser@labuser-virtual-machine:~/test1$ ls
+file1  file2  test1
+labuser@labuser-virtual-machine:~/test1$ cd
+labuser@labuser-virtual-machine:~$ mkdir dev1
+labuser@labuser-virtual-machine:~$ cd dev1
+labuser@labuser-virtual-machine:~/dev1$ git pull gh repo clone syedmohammedshadaab/syed
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ git pull gh repo clone syedmohammedshadaab/syed
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ git pull https://github.com/syedmohammedshadaab/syed.git~
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ git pull https://github.com/syedmohammedshadaab/syed.git
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ cd
+labuser@labuser-virtual-machine:~$ git clone https://github.com/syedmohammedshadaab/syed.git
+Cloning into 'syed'...
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 10 (delta 0), reused 10 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (10/10), done.
+labuser@labuser-virtual-machine:~$ ls -li
+total 56
+6029410 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Desktop
+6031856 drwxrwxr-x 2 labuser labuser 4096 Dec 14 00:44 dev1
+6029414 drwxr-xr-x 3 labuser labuser 4096 Dec 15  2023 Documents
+6029411 drwxr-xr-x 2 labuser labuser 4096 Dec 13 23:45 Downloads
+6036475 -rw-rw-r-- 1 labuser labuser   53 Dec 18  2023 execute.yml
+6029415 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Music
+6029416 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Pictures
+6029413 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Public
+6030259 drwxrwxr-x 2 labuser labuser 4096 Dec 18  2023 repos
+6029322 drwx------ 6 labuser labuser 4096 Dec 15  2023 snap
+6031808 drwxrwxr-x 3 labuser labuser 4096 Dec 14 00:46 syed
+6029412 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Templates
+6031823 drwxrwxr-x 3 labuser labuser 4096 Dec 14 00:39 test1
+6029418 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Videos
+labuser@labuser-virtual-machine:~$ ls
+Desktop  Documents  execute.yml  Pictures  repos  syed       test1
+dev1     Downloads  Music        Public    snap   Templates  Videos
+labuser@labuser-virtual-machine:~$ cd dev1
+labuser@labuser-virtual-machine:~/dev1$ git pull https://github.com/syedmohammedshadaab/syed.git
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ cd dev1
+bash: cd: dev1: No such file or directory
+labuser@labuser-virtual-machine:~/dev1$ cd 
+labuser@labuser-virtual-machine:~$ cd syed
+labuser@labuser-virtual-machine:~/syed$ ls
+test1
+labuser@labuser-virtual-machine:~/syed$ cd 
+labuser@labuser-virtual-machine:~$ cd dev1
+labuser@labuser-virtual-machine:~/dev1$ git pull https://github.com/syedmohammedshadaab/syed.git
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ git init .
+Initialized empty Git repository in /home/labuser/dev1/.git/
+labuser@labuser-virtual-machine:~/dev1$ git remote -v
+labuser@labuser-virtual-machine:~/dev1$ git pull https://github.com/syedmohammedshadaab/syed.git
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (6/6), 423 bytes | 141.00 KiB/s, done.
+From https://github.com/syedmohammedshadaab/syed
+ * branch            HEAD       -> FETCH_HEAD
+labuser@labuser-virtual-machine:~/dev1$ git branch
+* master
+labuser@labuser-virtual-machine:~/dev1$ ls -li
+total 4
+6032579 -rw-rw-r-- 1 labuser labuser 6 Dec 14 00:49 test1labuser@labuser-virtual-machine:~$ git --version
+git version 2.34.1
+labuser@labuser-virtual-machine:~$ mkdir test1
+labuser@labuser-virtual-machine:~$ cd test1
+labuser@labuser-virtual-machine:~/test1$ git init
+Initialized empty Git repository in /home/labuser/test1/.git/
+labuser@labuser-virtual-machine:~/test1$ echo "test1"> test1
+labuser@labuser-virtual-machine:~/test1$ gi status
+gi: command not found
+labuser@labuser-virtual-machine:~/test1$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	test1
+
+nothing added to commit but untracked files present (use "git add" to track)
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change 1"
+[master (root-commit) df4a6a9] change 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test1
+labuser@labuser-virtual-machine:~/test1$ git remote add origin https://github.com/syedmohammedshadaab/syed.git
+labuser@labuser-virtual-machine:~/test1$ git remote -v
+origin	https://github.com/syedmohammedshadaab/syed.git (fetch)
+origin	https://github.com/syedmohammedshadaab/syed.git (push)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': syedmohammedshadaab
+Password for 'https://syedmohammedshadaab@github.com': 
+remote: Permission to syedmohammedshadaab/syed.git denied to syedmohammedshadaab.
+fatal: unable to access 'https://github.com/syedmohammedshadaab/syed.git/': The requested URL returned error: 403
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': syedmohammedshadaab
+Password for 'https://syedmohammedshadaab@github.com': 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 223 bytes | 223.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/syedmohammedshadaab/syed.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change 1"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change1"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+labuser@labuser-virtual-machine:~/test1$ git remote -v
+origin	https://github.com/syedmohammedshadaab/syed.git (fetch)
+origin	https://github.com/syedmohammedshadaab/syed.git (push)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': syedmohammedshadaab
+Password for 'https://syedmohammedshadaab@github.com': 
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Everything up-to-date
+labuser@labuser-virtual-machine:~/test1$ nano test1
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change 2"
+[master 724d9ff] change 2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master 
+Username for 'https://github.com': syedmohammedshadaab
+Password for 'https://syedmohammedshadaab@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 252 bytes | 252.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/syedmohammedshadaab/syed.git
+   df4a6a9..724d9ff  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git branch
+* master
+labuser@labuser-virtual-machine:~/test1$ git branch devops1
+labuser@labuser-virtual-machine:~/test1$ git checkout devops1
+Switched to branch 'devops1'
+labuser@labuser-virtual-machine:~/test1$ git branch 
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test1$ echo "test3">file1
+labuser@labuser-virtual-machine:~/test1$ echo "test4">file2
+labuser@labuser-virtual-machine:~/test1$ ls -li
+total 12
+6031773 -rw-rw-r-- 1 labuser labuser 6 Dec 14 00:37 file1
+6031812 -rw-rw-r-- 1 labuser labuser 6 Dec 14 00:37 file2
+6031891 -rw-rw-r-- 1 labuser labuser 6 Dec 14 00:35 test1
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change4"
+[devops1 2a7a502] change4
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1
+ create mode 100644 file2
+labuser@labuser-virtual-machine:~/test1$ git push -u origin devops1
+Username for 'https://github.com': syedmohammedshadaab
+Password for 'https://syedmohammedshadaab@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 320 bytes | 320.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'devops1' on GitHub by visiting:
+remote:      https://github.com/syedmohammedshadaab/syed/pull/new/devops1
+remote: 
+To https://github.com/syedmohammedshadaab/syed.git
+ * [new branch]      devops1 -> devops1
+Branch 'devops1' set up to track remote branch 'devops1' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git branch
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test1$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+labuser@labuser-virtual-machine:~/test1$ git merge devops1
+Updating 724d9ff..2a7a502
+Fast-forward
+ file1 | 1 +
+ file2 | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1
+ create mode 100644 file2
+labuser@labuser-virtual-machine:~/test1$ git log -p
+commit 2a7a5028f43bf5eae75fedaf6d7f2a30b8aadf1d (HEAD -> master, origin/devops1, devops1)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 00:38:12 2024 -0500
+
+    change4
+
+diff --git a/file1 b/file1
+new file mode 100644
+index 0000000..df6b0d2
+--- /dev/null
++++ b/file1
+@@ -0,0 +1 @@
++test3
+diff --git a/file2 b/file2
+new file mode 100644
+index 0000000..d234c5e
+--- /dev/null
++++ b/file2
+@@ -0,0 +1 @@
++test4
+
+commit 724d9ff6f55dc83d9eadc7ef13ebc85a0da83548 (origin/master)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 00:35:50 2024 -0500
+
+    change 2
+
+diff --git a/test1 b/test1
+index a5bce3f..180cf83 100644
+--- a/test1
++++ b/test1
+@@ -1 +1 @@
+-test1
++test2
+
+commit df4a6a9b785d8b7666678f9250e16aae253f84f1
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 00:24:37 2024 -0500
+
+    change 1
+
+diff --git a/test1 b/test1
+new file mode 100644
+index 0000000..a5bce3f
+--- /dev/null
++++ b/test1
+@@ -0,0 +1 @@
++test1
+labuser@labuser-virtual-machine:~/test1$ git log --oneline
+2a7a502 (HEAD -> master, origin/devops1, devops1) change4
+724d9ff (origin/master) change 2
+df4a6a9 change 1
+labuser@labuser-virtual-machine:~/test1$ cd
+labuser@labuser-virtual-machine:~$ git clone gh repo clone syedmohammedshadaab/syed
+fatal: Too many arguments.
+
+usage: git clone [<options>] [--] <repo> [<dir>]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --progress            force progress reporting
+    --reject-shallow      don't clone shallow repository
+    -n, --no-checkout     don't create a checkout
+    --bare                create a bare repository
+    --mirror              create a mirror repository (implies bare)
+    -l, --local           to clone from a local repository
+    --no-hardlinks        don't use local hardlinks, always copy
+    -s, --shared          setup as shared repository
+    --recurse-submodules[=<pathspec>]
+                          initialize submodules in the clone
+    --recursive ...       alias of --recurse-submodules
+    -j, --jobs <n>        number of submodules cloned in parallel
+    --template <template-directory>
+                          directory from which templates will be used
+    --reference <repo>    reference repository
+    --reference-if-able <repo>
+                          reference repository
+    --dissociate          use --reference only while cloning
+    -o, --origin <name>   use <name> instead of 'origin' to track upstream
+    -b, --branch <branch>
+                          checkout <branch> instead of the remote's HEAD
+    -u, --upload-pack <path>
+                          path to git-upload-pack on the remote
+    --depth <depth>       create a shallow clone of that depth
+    --shallow-since <time>
+                          create a shallow clone since a specific time
+    --shallow-exclude <revision>
+                          deepen history of shallow clone, excluding rev
+    --single-branch       clone only one branch, HEAD or --branch
+    --no-tags             don't clone any tags, and make later fetches not to follow them
+    --shallow-submodules  any cloned submodules will be shallow
+    --separate-git-dir <gitdir>
+                          separate git dir from working tree
+    -c, --config <key=value>
+                          set config inside the new repository
+    --server-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+    --filter <args>       object filtering
+    --remote-submodules   any cloned submodules will use their remote-tracking branch
+    --sparse              initialize sparse-checkout file to include only files at root
+
+labuser@labuser-virtual-machine:~$ ls
+Desktop    Downloads    Music     Public  snap       test1
+Documents  execute.yml  Pictures  repos   Templates  Videos
+labuser@labuser-virtual-machine:~$ ls -li
+total 48
+6029410 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Desktop
+6029414 drwxr-xr-x 3 labuser labuser 4096 Dec 15  2023 Documents
+6029411 drwxr-xr-x 2 labuser labuser 4096 Dec 13 23:45 Downloads
+6036475 -rw-rw-r-- 1 labuser labuser   53 Dec 18  2023 execute.yml
+6029415 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Music
+6029416 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Pictures
+6029413 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Public
+6030259 drwxrwxr-x 2 labuser labuser 4096 Dec 18  2023 repos
+6029322 drwx------ 6 labuser labuser 4096 Dec 15  2023 snap
+6029412 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Templates
+6031823 drwxrwxr-x 3 labuser labuser 4096 Dec 14 00:39 test1
+6029418 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Videos
+labuser@labuser-virtual-machine:~$ cd syed
+bash: cd: syed: No such file or directory
+labuser@labuser-virtual-machine:~$ cd syed
+bash: cd: syed: No such file or directory
+labuser@labuser-virtual-machine:~$ cd test1
+labuser@labuser-virtual-machine:~/test1$ ls
+file1  file2  test1
+labuser@labuser-virtual-machine:~/test1$ cd
+labuser@labuser-virtual-machine:~$ mkdir dev1
+labuser@labuser-virtual-machine:~$ cd dev1
+labuser@labuser-virtual-machine:~/dev1$ git pull gh repo clone syedmohammedshadaab/syed
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ git pull gh repo clone syedmohammedshadaab/syed
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ git pull https://github.com/syedmohammedshadaab/syed.git~
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ git pull https://github.com/syedmohammedshadaab/syed.git
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ cd
+labuser@labuser-virtual-machine:~$ git clone https://github.com/syedmohammedshadaab/syed.git
+Cloning into 'syed'...
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 10 (delta 0), reused 10 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (10/10), done.
+labuser@labuser-virtual-machine:~$ ls -li
+total 56
+6029410 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Desktop
+6031856 drwxrwxr-x 2 labuser labuser 4096 Dec 14 00:44 dev1
+6029414 drwxr-xr-x 3 labuser labuser 4096 Dec 15  2023 Documents
+6029411 drwxr-xr-x 2 labuser labuser 4096 Dec 13 23:45 Downloads
+6036475 -rw-rw-r-- 1 labuser labuser   53 Dec 18  2023 execute.yml
+6029415 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Music
+6029416 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Pictures
+6029413 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Public
+6030259 drwxrwxr-x 2 labuser labuser 4096 Dec 18  2023 repos
+6029322 drwx------ 6 labuser labuser 4096 Dec 15  2023 snap
+6031808 drwxrwxr-x 3 labuser labuser 4096 Dec 14 00:46 syed
+6029412 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Templates
+6031823 drwxrwxr-x 3 labuser labuser 4096 Dec 14 00:39 test1
+6029418 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Videos
+labuser@labuser-virtual-machine:~$ ls
+Desktop  Documents  execute.yml  Pictures  repos  syed       test1
+dev1     Downloads  Music        Public    snap   Templates  Videos
+labuser@labuser-virtual-machine:~$ cd dev1
+labuser@labuser-virtual-machine:~/dev1$ git pull https://github.com/syedmohammedshadaab/syed.git
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ cd dev1
+bash: cd: dev1: No such file or directory
+labuser@labuser-virtual-machine:~/dev1$ cd 
+labuser@labuser-virtual-machine:~$ cd syed
+labuser@labuser-virtual-machine:~/syed$ ls
+test1
+labuser@labuser-virtual-machine:~/syed$ cd 
+labuser@labuser-virtual-machine:~$ cd dev1
+labuser@labuser-virtual-machine:~/dev1$ git pull https://github.com/syedmohammedshadaab/syed.git
+fatal: not a git repository (or any of the parent directories): .git
+labuser@labuser-virtual-machine:~/dev1$ git init .
+Initialized empty Git repository in /home/labuser/dev1/.git/
+labuser@labuser-virtual-machine:~/dev1$ git remote -v
+labuser@labuser-virtual-machine:~/dev1$ git pull https://github.com/syedmohammedshadaab/syed.git
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (6/6), 423 bytes | 141.00 KiB/s, done.
+From https://github.com/syedmohammedshadaab/syed
+ * branch            HEAD       -> FETCH_HEAD
+labuser@labuser-virtual-machine:~/dev1$ git branch
+* master
+labuser@labuser-virtual-machine:~/dev1$ ls -li
+total 4
+6032579 -rw-rw-r-- 1 labuser labuser 6 Dec 14 00:49 test1
+labuser@labuser-virtual-machine:~/dev1$ git branch m1
+labuser@labuser-virtual-machine:~/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/dev1$ echo "apple1">fruit
+labuser@labuser-virtual-machine:~/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/dev1$ git checkout master
+Switched to branch 'master'
+labuser@labuser-virtual-machine:~/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/dev1$ git rebase maser
+fatal: invalid upstream 'maser'
+labuser@labuser-virtual-machine:~/dev1$ git rebase master
+Current branch m1 is up to date.
+
+labuser@labuser-virtual-machine:~/dev1$ git branch m1
+labuser@labuser-virtual-machine:~/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/dev1$ echo "apple1">fruit
+labuser@labuser-virtual-machine:~/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/dev1$ git checkout master
+Switched to branch 'master'
+labuser@labuser-virtual-machine:~/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/dev1$ git rebase maser
+fatal: invalid upstream 'maser'
+labuser@labuser-virtual-machine:~/dev1$ git rebase master
+Current branch m1 is up to date.
+
